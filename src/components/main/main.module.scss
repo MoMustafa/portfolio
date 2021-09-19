@@ -5,6 +5,8 @@
 .container {
   height: 100vh;
   overflow: hidden;
+  background-size: cover;
+  background-attachment: fixed;
 }
 
 .slides {
