@@ -1,0 +1,11 @@
+$themes: (
+  light: (
+    color-background: url('/images/background.png'),
+    background-attachment: fixed,
+    color-card: black
+  ),
+  dark: (
+    color-background: #37474F,
+    color-card: white
+  )
+)

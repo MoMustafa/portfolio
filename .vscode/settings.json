@@ -1,0 +1,13 @@
+{
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  },
+  "eslint.validate": ["javascript", "typescript"],
+  "prettier.singleQuote": true,
+  "prettier.stylelintIntegration": true,
+  "prettier.requireConfig": true,
+  "prettier.tslintIntegration": true,
+  "prettier.jsxSingleQuote": true,
+  "typescript.format.semicolons": "remove",
+  "prettier.semi": false
+}

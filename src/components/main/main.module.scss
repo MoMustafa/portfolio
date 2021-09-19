@@ -1,0 +1,29 @@
+@import 'styles/mixins';
+@include theme-aware('background', 'color-background');
+@include theme-aware('color', 'color-card');
+
+.container {
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slides {
+  height: 88vh;
+  margin-top: 12vh;
+  display: flex;
+  flex-direction: row;
+}
+
+.slideContainer {
+  display: flex;
+  height: 86vh;
+  padding: 1vh 1vw;
+}
+
+.slideContents {
+  width: 96vw;
+  height: 84vh;
+  display: flex;
+  padding: 1vh 1vw;
+  border-radius: 10px;
+}
