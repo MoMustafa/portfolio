@@ -1,12 +1,13 @@
 @import 'styles/mixins';
-@include theme-aware('background', 'background-image');
+@include theme-aware('background-image', 'background-image');
+@include theme-aware('color', 'font-color');
 
 html,
 body {
   overflow: hidden;
   padding: 0;
   margin: 0;
-  font-family: Roboto, 'Poiret One', 'Abril Fatface';
+  font-family: Roboto, 'Poiret One', 'Abril Fatface', 'Playfair Display SC', 'Mate SC', 'Cedarville Cursive';
   font-size: 100%;
   height: 100%;
 }
