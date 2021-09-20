@@ -14,9 +14,11 @@ const Main: FunctionComponent = () => (
       <Project project="componentLibrary" />
     </div>
     <div className={styles.recommendationsWrapper}>
-      {Recommmendations.map((recommendation) => (
-        <Recommendation key={uniqueId()} {...recommendation} />
-      ))}
+      <div className={styles.recommendationsContent}>
+        {Recommmendations.map((recommendation) => (
+          <Recommendation key={uniqueId()} {...recommendation} />
+        ))}
+      </div>
     </div>
   </div>
 )

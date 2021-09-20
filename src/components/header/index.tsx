@@ -1,4 +1,4 @@
-import React, { FunctionComponent, KeyboardEvent, MouseEvent, useState } from 'react'
+import React, { FunctionComponent, KeyboardEvent, MouseEvent, useEffect, useState } from 'react'
 import GithubIcon from 'icons/github'
 import LinkedInIcon from 'icons/linkedin'
 import Roles from 'configs/roles'
@@ -7,8 +7,9 @@ import styles from './header.module.scss'
 
 const Header: FunctionComponent = () => {
   const [currentRole, setCurrentRole] = useState(Roles[0])
-  const getNewRole = (e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
-    if (e.type === 'keydown' && (e as KeyboardEvent).code !== 'Enter') return
+
+  const getNewRole = (e?: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
+    if (e?.type === 'keydown' && (e as KeyboardEvent).code !== 'Enter') return
 
     let newRole = currentRole
 
@@ -19,6 +20,12 @@ const Header: FunctionComponent = () => {
 
     setCurrentRole(newRole)
   }
+
+  useEffect(() => {
+    const timer = setInterval(getNewRole, 5000)
+
+    return () => clearInterval(timer)
+  }, [])
 
   return (
     <div className={styles.container}>

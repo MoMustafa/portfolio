@@ -3,8 +3,11 @@ const Roles = [
   'software engineer',
   'unit test developer',
   'react enthusiast',
-  'scrum master',
-  'frontend expert'
+  'agile scrum master',
+  'frontend expert',
+  'enterprise design thinker',
+  'senior consultant',
+  'web designer'
 ]
 
 export default Roles
