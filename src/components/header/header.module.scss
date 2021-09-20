@@ -1,3 +1,4 @@
+@use 'styles/variables.scss' as *;
 @import 'styles/mixins';
 @include theme-aware('background', 'color-background');
 @include theme-aware('color', 'color-card');
@@ -28,11 +29,16 @@
 
 .role {
   font-family: Cedarville Cursive;
-  font-size: 1.7rem;
+  font-size: 1.5rem;
   cursor: pointer;
   outline: none;
   color: #f7fbff;
   position: absolute;
   top: 35px;
   left: 40px;
+  
+  @media screen and (min-width: $tablet) {
+    font-size: 1.7rem;
+    top: 32px;
+  }
 }

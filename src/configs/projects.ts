@@ -8,7 +8,7 @@ const Projects: IProjects = {
     pictureSrc: mattressmatcher,
     pictureAlt: 'mattress matcher',
     description:
-      'A quiz and recommendation app that takes the guesswork out of mattress shopping and matches the best products as recommended by Sleep Experts.',
+      'A quiz and recommendation app that takes the guesswork out of mattress shopping and matches the best products as recommended by an intelligent backend engine.',
     details: 'Details'
   },
   deliveryTracker: {

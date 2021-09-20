@@ -3,7 +3,7 @@ import React, { FunctionComponent, useState } from 'react'
 import Image from 'next/image'
 import Projects from 'configs/projects'
 
-import styles from './project.module.scss'
+import styles from '../projects.module.scss'
 
 interface Props {
   project: string

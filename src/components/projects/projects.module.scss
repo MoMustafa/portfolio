@@ -1,0 +1,151 @@
+@use 'styles/variables.scss' as *;
+@import 'styles/mixins';
+@include theme-aware('background', 'color-background');
+@include theme-aware('cardColor', 'color-card');
+
+.container {
+  display: flex;
+  font-weight: 700;
+  transition: all 1s;
+  margin: 4vh 0;
+
+  @media screen and (min-width: $tablet) {
+    margin: 0;
+  }
+}
+
+.slidesWrapper {
+  position: relative;
+  height: 100%;
+
+  @media screen and (min-width: $tablet) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+.projectsBanner{
+  width: fit-content;
+  margin: 1vh auto 0;
+  font-size: 2rem;
+  z-index: 1;
+  color: #2F323A;
+  opacity: 0.8;
+
+  @media screen and (min-width: $tablet) {
+    position: absolute;
+    margin: 0;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  @media screen and (min-width: $desktop) {
+    font-size: 3rem;
+  }
+}
+
+.projectsWrapper {
+  display: flex;
+  flex-direction: column;
+  height: 40vh;
+  width: 96vw;
+  margin: 0 2vw;
+  overflow: scroll;
+
+  @media screen and (min-width: $tablet) {
+    flex-direction: row;
+    width: 100vw;
+    height: unset;
+    min-height: 100%;
+    margin: 0;
+  }
+}
+
+.pictureAndDetails {
+  display: flex;
+  flex-direction: column;
+  transition: all 1s;
+  width: 80vw;
+  margin: 2vh 10vw;
+
+  &:hover {
+    transform: scale(1.05);
+    cursor: pointer;
+  }
+
+  @media screen and (min-width: $tablet) {
+    justify-content: center;
+    width: 50vw;
+    height: 50vh;
+    margin: 20vh 25vw;
+  }
+}
+
+.picture {
+  transition: all 1s;
+  object-fit: cover;
+  object-position: top;
+  border-radius: 20px;
+  border: 2px solid #7DA0A1 !important;
+}
+
+.expanded {
+  width: 90vw;
+  margin: 0 5vw;
+  transition: all 1s;
+
+  &.pictureAndDetails {
+    &:hover {
+      transform: none;
+    }
+
+    @media screen and (min-width: $tablet) {
+      height: 80vh;
+    }
+  }
+
+  & .picture {
+    object-position: top;
+    border: none !important;
+    border-radius: 20px 20px 0 0;
+  }
+
+  @media screen and (min-width: $tablet) {
+    margin: 5vh 5vw;
+  }
+}
+
+.details {
+  height: 0;
+  overflow: hidden;
+  transition: all 0.5s;
+}
+
+.showDetails { 
+  height: 100%;
+  margin-top: 10px;
+  padding: 10px;
+  transition: all 0.5s;
+  background-color: #2F323A;
+  color: white;
+  opacity: 0.5;
+  position: relative;
+  z-index: 1;
+  border-radius: 0 0 20px 20px;
+
+  @media screen and (min-width: $tablet) {
+    height: 300%;
+  }
+}
+
+.description {
+  font-weight: 300;
+  font-size: 0.8rem;
+  font-family: Mate SC;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 1.2rem;
+    height: 300%;
+  }
+}

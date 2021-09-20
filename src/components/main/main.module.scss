@@ -3,32 +3,9 @@
 .container {
   display: flex;
   flex-direction: column;
+  position: relative;
   flex-wrap: nowrap;
   height: fit-content;
   overflow-x: hidden;
   height: 90vh;
-}
-
-.projectsWrapper {
-  display: flex;
-  flex-direction: row;
-  min-height: 100%;
-  width: 100vw;
-  overflow: scroll;
-}
-
-.recommendationsWrapper {
-  margin: 5vh 0;
-  min-height: 100%;
-}
-
-.recommendationsContent {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-around;
-  align-items: center;
-  background-color: #2F323A;
-  opacity: 0.5;
-  padding: 50px 0;
 }
