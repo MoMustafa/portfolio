@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-page-custom-font */
+import React from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import Main from 'components/main'
 import WindowsDimensionsProvider from 'contexts/windowDimensionsCtx/provider'
+import Header from 'components/header'
 
 const Home: NextPage = () => (
   <div>
@@ -12,8 +14,9 @@ const Home: NextPage = () => (
       <link rel="icon" href="/favicon.ico" />
     </Head>
 
-    <main>
+    <main className="lightTheme">
       <WindowsDimensionsProvider>
+        <Header />
         <Main />
       </WindowsDimensionsProvider>
     </main>

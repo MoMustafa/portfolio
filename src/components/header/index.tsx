@@ -1,10 +1,25 @@
-import React, { FunctionComponent } from 'react'
+import React, { FunctionComponent, KeyboardEvent, MouseEvent, useState } from 'react'
 import GithubIcon from 'icons/github'
 import LinkedInIcon from 'icons/linkedin'
+import Roles from 'configs/roles'
+
 import styles from './header.module.scss'
 
 const Header: FunctionComponent = () => {
-  console.log()
+  const [currentRole, setCurrentRole] = useState(Roles[0])
+  const getNewRole = (e: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
+    if (e.type === 'keydown' && (e as KeyboardEvent).code !== 'Enter') return
+
+    let newRole = currentRole
+
+    while (newRole === currentRole) {
+      const seed = Math.random()
+      newRole = Roles[Math.floor(seed * Roles.length)]
+    }
+
+    setCurrentRole(newRole)
+  }
+
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -18,12 +33,15 @@ const Header: FunctionComponent = () => {
           </a>
         </div>
       </div>
-      {/* <Slides
-        contents={Roles}
-        className={styles.rolesContainer}
-        widthFactor={100 / 3}
-        slideProps={{ containerClassName: styles.slideContainer, contentClassName: styles.slideContents }}
-      /> */}
+      <div
+        className={styles.role}
+        role="button"
+        tabIndex={0}
+        onClick={(e) => getNewRole(e)}
+        onKeyDown={(e) => getNewRole(e)}
+      >
+        {currentRole}
+      </div>
     </div>
   )
 }

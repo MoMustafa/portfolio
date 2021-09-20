@@ -1,31 +1,28 @@
 @import 'styles/mixins';
-@include theme-aware('background', 'color-background');
-@include theme-aware('color', 'color-card');
 
 .container {
-  height: 100vh;
-  overflow: hidden;
-  background-size: cover;
-  background-attachment: fixed;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: fit-content;
+  overflow-x: hidden;
+  height: 90vh;
 }
 
-.slides {
-  height: 88vh;
-  margin-top: 12vh;
+.projectsWrapper {
   display: flex;
   flex-direction: row;
+  min-height: 100%;
+  width: 100vw;
+  overflow: scroll;
 }
 
-.slideContainer {
+.recommendationsWrapper {
   display: flex;
-  height: 86vh;
-  padding: 1vh 1vw;
-}
-
-.slideContents {
-  width: 96vw;
-  height: 84vh;
-  display: flex;
-  padding: 1vh 1vw;
-  border-radius: 10px;
+  flex-direction: row;
+  flex-wrap: wrap;
+  padding: 5vh 1vw;
+  min-height: 100%;
+  justify-content: center;
+  align-items: center;
 }

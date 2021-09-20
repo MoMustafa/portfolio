@@ -1,7 +1,12 @@
+@import 'styles/mixins';
+@include theme-aware('background', 'background-image');
+
 html,
 body {
   overflow: hidden;
   padding: 0;
   margin: 0;
-  font-family: Roboto, 'Poiret One';
+  font-family: Roboto, 'Poiret One', 'Abril Fatface';
+  font-size: 100%;
+  height: 100%;
 }

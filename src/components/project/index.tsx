@@ -14,7 +14,7 @@ const Project: FunctionComponent<Props> = ({ project }) => {
   const projectInfo = Projects[project]
 
   return (
-    <div className={clsx(styles.container, isExpanded && styles.expanded)}>
+    <div className={styles.container}>
       <div
         role="button"
         tabIndex={0}
@@ -23,6 +23,7 @@ const Project: FunctionComponent<Props> = ({ project }) => {
         onKeyDown={() => setIsExpanded(!isExpanded)}
       >
         <Image
+          placeholder="blur"
           className={styles.picture}
           src={projectInfo.pictureSrc}
           alt={projectInfo.pictureAlt}

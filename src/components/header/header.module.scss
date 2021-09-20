@@ -3,46 +3,75 @@
 @include theme-aware('color', 'color-card');
 
 .container {
-  position: absolute;
-  height: 10vh;
-  width: 98vw;
-  margin: 1vh 1vw;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  flex-direction: column;
   font-family: Poiret One;
-  font-size: 32px;
+  font-size: 1.5rem;
+  padding: 1vh 1vw;
+  height: 8vh;
+  justify-content: space-between;
 }
 
 .title {
-  width: 98vw;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  font-size: 2rem;
 }
 
 .socialLinks {
   display: flex;
   flex-direction: row;
-  height: fit-content;
-
-  & svg {
-    margin: 0 2px;
-  }
+  justify-content: space-between;
+  width: 5%;
 }
 
-.rolesContainer {
-  display: flex;
-  flex-direction: row;
-  overflow: hidden;
+.role {
+  cursor: pointer;
+  outline: none;
 }
 
-.slideContainer {
-  width: 100vw;
-  display: flex;
-}
+// .container {
+//   position: absolute;
+//   height: 10vh;
+//   width: 98vw;
+//   margin: 1vh 1vw;
+//   display: flex;
+//   flex-direction: row;
+//   flex-wrap: wrap;
+//   justify-content: space-between;
+//   font-family: Poiret One;
+//   font-size: 2rem;
+// }
 
-.slideContents {
-  width: 98vw;
-}
+// .title {
+//   width: 98vw;
+//   display: flex;
+//   flex-direction: row;
+//   justify-content: space-between;
+// }
+
+// .socialLinks {
+//   display: flex;
+//   flex-direction: row;
+//   height: fit-content;
+
+//   & svg {
+//     margin: 0 2px;
+//   }
+// }
+
+// .rolesContainer {
+//   display: flex;
+//   flex-direction: row;
+//   overflow: hidden;
+// }
+
+// .slideContainer {
+//   width: 100vw;
+//   display: flex;
+// }
+
+// .slideContents {
+//   width: 98vw;
+// }
