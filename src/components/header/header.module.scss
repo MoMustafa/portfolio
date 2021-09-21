@@ -36,9 +36,15 @@
   position: absolute;
   top: 35px;
   left: 40px;
+  transition: opacity 1s;
+  opacity: 1;
   
   @media screen and (min-width: $tablet) {
     font-size: 1.7rem;
     top: 32px;
+  }
+
+  &.hidden {
+    opacity: 0;
   }
 }

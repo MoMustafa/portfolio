@@ -1,0 +1,61 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-bottom: 5vh;
+}
+
+.info {
+  flex-basis: 20%;
+  position: relative;
+}
+
+.logos {
+  width: 410px;
+
+  svg {
+    margin: 10px;
+    cursor: pointer;
+    transition: all 0.5s;
+
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}
+
+.infoContent {
+  position: absolute;
+  color: white;
+  font-size: 2rem;
+  text-shadow: 2px 2px #7DA0A1;
+  transition: opacity 0.5s;
+  opacity: 1;
+
+  &.hidden {
+    transition: opacity 0.5s;
+    opacity: 0;
+  }
+
+  &.topRight {
+    top: 0%;
+    right: 0%;
+  }
+
+  &.topLeft {
+    top: 0%;
+    right: 50%;
+  }
+
+  &.bottomRight {
+    top: 50%;
+    right: 0%;
+  }
+
+  &.bottomLeft {
+    top: 50%;
+    right: 50%;
+  }
+}
+

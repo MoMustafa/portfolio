@@ -3,14 +3,19 @@ import GithubIcon from 'icons/github'
 import LinkedInIcon from 'icons/linkedin'
 import Roles from 'configs/roles'
 
+import clsx from 'clsx'
 import styles from './header.module.scss'
 
 const Header: FunctionComponent = () => {
   const [currentRole, setCurrentRole] = useState(Roles[0])
+  const [hiddenRole, setHiddenRole] = useState(false)
 
-  const getNewRole = (e?: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
+  const handleClick = (e?: MouseEvent<HTMLDivElement> | KeyboardEvent<HTMLDivElement>) => {
     if (e?.type === 'keydown' && (e as KeyboardEvent).code !== 'Enter') return
+    setHiddenRole(true)
+  }
 
+  const getNewRole = () => {
     let newRole = currentRole
 
     while (newRole === currentRole) {
@@ -22,10 +27,23 @@ const Header: FunctionComponent = () => {
   }
 
   useEffect(() => {
-    const timer = setInterval(getNewRole, 5000)
+    const timer = setInterval(handleClick, 5000)
 
     return () => clearInterval(timer)
   }, [])
+
+  useEffect(() => {
+    let timer: NodeJS.Timeout
+
+    if (hiddenRole) {
+      timer = setTimeout(() => {
+        setHiddenRole(false)
+        getNewRole()
+      }, 1000)
+    }
+
+    return () => clearTimeout(timer)
+  }, [hiddenRole])
 
   return (
     <div className={styles.container}>
@@ -41,11 +59,11 @@ const Header: FunctionComponent = () => {
         </div>
       </div>
       <div
-        className={styles.role}
+        className={clsx(styles.role, hiddenRole && styles.hidden)}
         role="button"
         tabIndex={0}
-        onClick={(e) => getNewRole(e)}
-        onKeyDown={(e) => getNewRole(e)}
+        onClick={(e) => handleClick(e)}
+        onKeyDown={(e) => handleClick(e)}
       >
         {currentRole}
       </div>

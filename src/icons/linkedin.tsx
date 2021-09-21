@@ -12,9 +12,4 @@ const LinkedInIcon: FunctionComponent<Props> = ({ width = '24', height = '24', .
   </svg>
 )
 
-LinkedInIcon.defaultProps = {
-  width: '24',
-  height: '24'
-}
-
 export default LinkedInIcon

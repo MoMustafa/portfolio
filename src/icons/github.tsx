@@ -12,9 +12,4 @@ const GithubIcon: FunctionComponent<Props> = ({ width = '24', height = '24', ...
   </svg>
 )
 
-GithubIcon.defaultProps = {
-  width: '24',
-  height: '24'
-}
-
 export default GithubIcon
