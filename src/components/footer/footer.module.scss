@@ -1,7 +1,18 @@
 .container {
+  padding: 1vh 1vw;
+  background-color: #2F323A;
 }
 
 .contents {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
   height: 10vh;
-  background-color: #2F323A;
+  width: 150px;
+  margin: 0 auto;
+
+  & a:hover {
+    transform: scale(1.2);
+  }
 }

@@ -1,4 +1,4 @@
-import React, { FunctionComponent } from 'react'
+import { FunctionComponent } from 'react'
 import Projects from 'components/projects'
 import RecommmendationsBanner from 'components/recommendationsBanner'
 import TechStack from 'components/techstack'

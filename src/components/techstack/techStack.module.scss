@@ -12,6 +12,10 @@
 }
 
 .logos {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
   width: 410px;
 
   svg {
@@ -28,10 +32,15 @@
 .infoContent {
   position: absolute;
   color: white;
-  font-size: 2rem;
-  text-shadow: 2px 2px #7DA0A1;
+  font-family: Mate SC;
+  font-size: 1rem;
+  text-align: center;
+  // padding: 15px;
+  // margin: 5px;
+  border-radius: 20px;
   transition: opacity 0.5s;
   opacity: 1;
+  width: 90%;
 
   &.hidden {
     transition: opacity 0.5s;
@@ -45,7 +54,7 @@
 
   &.topLeft {
     top: 0%;
-    right: 50%;
+    left: 0%;
   }
 
   &.bottomRight {
@@ -55,7 +64,14 @@
 
   &.bottomLeft {
     top: 50%;
-    right: 50%;
+    left: 0%;
   }
 }
 
+.leftCol {
+  color: #2F323A;
+}
+
+.rightCol {
+  color: #f7fbff;
+}

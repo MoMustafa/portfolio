@@ -1,7 +1,7 @@
-import clsx from 'clsx'
-import React, { FunctionComponent, useState } from 'react'
+import { FunctionComponent, useState } from 'react'
 import Image from 'next/image'
 import Projects from 'configs/projects'
+import clsx from 'clsx'
 
 import styles from '../projects.module.scss'
 

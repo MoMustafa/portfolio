@@ -1,9 +1,7 @@
-import React, { FunctionComponent, KeyboardEvent, MouseEvent, useEffect, useState } from 'react'
-import GithubIcon from 'icons/github'
-import LinkedInIcon from 'icons/linkedin'
+import { FunctionComponent, KeyboardEvent, MouseEvent, useEffect, useState } from 'react'
 import Roles from 'configs/roles'
-
 import clsx from 'clsx'
+
 import styles from './header.module.scss'
 
 const Header: FunctionComponent = () => {
@@ -49,14 +47,6 @@ const Header: FunctionComponent = () => {
     <div className={styles.container}>
       <div className={styles.title}>
         <div>MO MUSTAFA</div>
-        <div className={styles.socialLinks}>
-          <a href="https://www.linkedin.com/in/msmustafa" rel="noopener noreferrer" target="_blank">
-            <LinkedInIcon />
-          </a>
-          <a href="https://github.com/MoMustafa" rel="noopener noreferrer" target="_blank">
-            <GithubIcon />
-          </a>
-        </div>
       </div>
       <div
         className={clsx(styles.role, hiddenRole && styles.hidden)}
