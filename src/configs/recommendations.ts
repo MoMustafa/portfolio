@@ -1,4 +1,4 @@
-import { IRecommendation } from 'types/recommendations'
+import { IRecommendation } from 'types/IRecommendation'
 
 const Recommmendations: IRecommendation[] = [
   {

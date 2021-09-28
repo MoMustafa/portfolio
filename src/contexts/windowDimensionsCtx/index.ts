@@ -1,6 +1,6 @@
 import contextHookFactory from 'contexts/contextHelper'
 import { createContext } from 'react'
-import { IWindowDimensions } from 'types/windowDimensions'
+import { IWindowDimensions } from 'types/IWindowDimensions'
 
 export const initialWindowsDimensionsState: IWindowDimensions = {
   innerWidth: 0,

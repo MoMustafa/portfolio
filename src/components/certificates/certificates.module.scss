@@ -1,0 +1,62 @@
+@use 'styles/variables.scss' as *;
+@import 'styles/mixins';
+@include theme-aware('background', 'color-background');
+
+.container {
+}
+
+.certificate {
+  display: flex;
+  flex-direction: row;
+  margin: 1vh 0;
+  opacity: 0;
+  padding: 0 1vw;
+  text-decoration: none;
+  background-image: linear-gradient(to left, #2F323A00, #2F323A80);
+  transition: opacity 1s background-color 0.5s;
+
+  &:hover {
+    transition: background-color 0.5s;
+    background-color: #2F323A70;
+  }
+
+  @media screen and (min-width: $tablet) {
+    justify-content: center;
+  }
+}
+
+.show {
+  transition: opacity 1s;
+  opacity: 1;
+}
+
+.logo {
+  height: 80px;
+  margin-right: 15px;
+}
+
+.info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-family: Mate SC;
+  color: #F7FBFF;
+  text-align: right;
+  opacity: 0.75;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media screen and (min-width: $tablet) {
+    width: 44vw;
+  }
+
+  @media screen and (min-width: $laptop) {
+    width: 33vw;
+  }
+
+  @media screen and (min-width: $desktop) {
+    width: 24vw;
+  }
+}

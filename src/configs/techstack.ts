@@ -1,4 +1,4 @@
-import ITechstack from 'types/techstack'
+import ITechstack from 'types/ITechstack'
 
 const Technologies: ITechstack = {
   typescript: 'Created complex and performant web apps using Typescript',

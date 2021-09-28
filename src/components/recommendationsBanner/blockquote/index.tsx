@@ -1,5 +1,7 @@
-import { FunctionComponent } from 'react'
+import { FunctionComponent, useEffect, useRef, useState } from 'react'
+import clsx from 'clsx'
 
+import { useInViewport } from 'react-in-viewport'
 import styles from '../recommendationsBanner.module.scss'
 
 interface Props {
@@ -9,16 +11,32 @@ interface Props {
   blurb: string
 }
 
-const Blockquote: FunctionComponent<Props> = ({ author, authorInfo, authorLink, blurb }) => (
-  <div className={styles.blockquoteWrapper}>
-    <div className={styles.blockquoteBorder}>
-      <h1 className={styles.blockquote}>{blurb}</h1>
-      <a className={styles.author} href={authorLink} rel="noopener noreferrer" target="_blank">
-        <h3>{`- ${author}`}</h3>
-        <h6>{authorInfo}</h6>
-      </a>
+const Blockquote: FunctionComponent<Props> = ({ author, authorInfo, authorLink, blurb }) => {
+  const blockquoteRef = useRef(null)
+  const { inViewport } = useInViewport(blockquoteRef, {}, { disconnectOnLeave: false }, {})
+  const [initialize, setInitialize] = useState(inViewport)
+
+  useEffect(() => {
+    setInitialize(inViewport)
+  }, [inViewport])
+
+  return (
+    <div ref={blockquoteRef} className={styles.blockquoteWrapper}>
+      <div className={clsx(styles.blockquoteBorder, initialize && styles.show)}>
+        <h1 className={styles.blockquote}>{blurb}</h1>
+        <a
+          className={styles.author}
+          href={authorLink}
+          aria-label={`${author}'s Linked In'`}
+          rel="noopener noreferrer"
+          target="_blank"
+        >
+          <div className={styles.name}>{`- ${author}`}</div>
+          <div className={styles.info}>{authorInfo}</div>
+        </a>
+      </div>
     </div>
-  </div>
-)
+  )
+}
 
 export default Blockquote

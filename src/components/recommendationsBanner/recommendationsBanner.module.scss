@@ -37,6 +37,12 @@
 .blockquoteBorder {
   padding: 50px 20px;
   position: relative;
+  transition: all 1s;
+  opacity: 0;
+
+  &.show {
+    opacity: 1;
+  }
 }
 
 .blockquote {
@@ -71,12 +77,12 @@
     text-decoration: underline;
   }
 
-  & h3, 
-  & h6 {
+  & .name, 
+  & .info {
     margin: 0 0 0 122px;
   }
 
-  & h3 {
+  & .name {
     font-size: 1rem;
     padding-top: 10px;
 
@@ -95,7 +101,7 @@
     }
   }
 
-  & h6 {
+  & .info {
     font-size: 0.6rem;
 
     @media screen and (min-width: $tablet) {

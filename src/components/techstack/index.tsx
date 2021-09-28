@@ -1,9 +1,10 @@
-import { FunctionComponent, useEffect, useState } from 'react'
+import { FunctionComponent, useEffect, useRef, useState } from 'react'
 import { useWindowDimensions } from 'contexts/windowDimensionsCtx'
 import Technologies from 'configs/techstack'
 import getIcon from 'utils/getIcon'
 import clsx from 'clsx'
 
+import { useInViewport } from 'react-in-viewport'
 import styles from './techStack.module.scss'
 
 const TechStack: FunctionComponent = () => {
@@ -16,6 +17,9 @@ const TechStack: FunctionComponent = () => {
   const [postiton2, setPosition2] = useState('')
   const [clickedTech, setClickedTech] = useState('')
   const techNames = Object.keys(Technologies)
+
+  const techStackRef = useRef(null)
+  const { inViewport } = useInViewport(techStackRef, {}, { disconnectOnLeave: false }, {})
 
   const getRandomPosition = (column: number) => {
     const Positions = ['topRight', 'topLeft', 'bottomRight', 'bottomLeft']
@@ -48,6 +52,8 @@ const TechStack: FunctionComponent = () => {
     let timer: NodeJS.Timeout
     const techDetails = Technologies[clickedTech]?.toLowerCase()
 
+    if (!techDetails) return () => clearTimeout(timer)
+
     if (!info1Hidden) {
       getRandomPosition(1)
       setInfo1(techDetails)
@@ -59,8 +65,18 @@ const TechStack: FunctionComponent = () => {
     return () => clearTimeout(timer)
   }, [info1Hidden, info2Hidden])
 
+  useEffect(() => {
+    if (!inViewport) {
+      setClickedTech('')
+      setInfo1Hidden(true)
+      setInfo2Hidden(true)
+      setPosition1('')
+      setPosition2('')
+    }
+  }, [inViewport])
+
   return (
-    <div className={styles.container}>
+    <div ref={techStackRef} className={styles.container}>
       {!isMobile && (
         <div className={styles.info}>
           <div
@@ -75,7 +91,7 @@ const TechStack: FunctionComponent = () => {
           </div>
         </div>
       )}
-      <div className={styles.logos}>
+      <div className={clsx(styles.logos, inViewport && styles.show)}>
         {techNames.map((techname) =>
           getIcon(techname, isMobile ? '40' : '80', isMobile ? '40' : '80', {
             onMouseEnter: () => logoHover(techname)

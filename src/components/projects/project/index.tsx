@@ -2,6 +2,7 @@ import { FunctionComponent, useState } from 'react'
 import Image from 'next/image'
 import Projects from 'configs/projects'
 import clsx from 'clsx'
+import uniqueId from 'uniqid'
 
 import styles from '../projects.module.scss'
 
@@ -11,7 +12,7 @@ interface Props {
 
 const Project: FunctionComponent<Props> = ({ project }) => {
   const [isExpanded, setIsExpanded] = useState(false)
-  const projectInfo = Projects[project]
+  const { pictureSrc, pictureAlt, description, details } = Projects[project]
 
   return (
     <div className={styles.container}>
@@ -22,15 +23,14 @@ const Project: FunctionComponent<Props> = ({ project }) => {
         onClick={() => setIsExpanded(!isExpanded)}
         onKeyDown={() => setIsExpanded(!isExpanded)}
       >
-        <Image
-          placeholder="blur"
-          className={styles.picture}
-          src={projectInfo.pictureSrc}
-          alt={projectInfo.pictureAlt}
-          layout="intrinsic"
-        />
+        <Image placeholder="blur" className={styles.picture} src={pictureSrc} alt={pictureAlt} layout="intrinsic" />
         <div className={clsx(styles.details, isExpanded && styles.showDetails)}>
-          <div className={styles.description}>{projectInfo.description}</div>
+          <div className={styles.description}>{description}</div>
+          <ul className={styles.detailsList}>
+            {details.map((detail) => (
+              <li key={uniqueId()}>{detail}</li>
+            ))}
+          </ul>
         </div>
       </div>
     </div>

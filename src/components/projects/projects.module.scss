@@ -51,7 +51,7 @@
   height: 40vh;
   width: 96vw;
   margin: 0 2vw;
-  overflow: scroll;
+  overflow: auto;
 
   @media screen and (min-width: $tablet) {
     flex-direction: row;
@@ -87,7 +87,7 @@
   object-fit: cover;
   object-position: top;
   border-radius: 20px;
-  border: 2px solid #7DA0A1 !important;
+  // border: 2px solid #7DA0A1 !important;
 }
 
 .expanded {
@@ -145,7 +145,27 @@
   font-family: Mate SC;
 
   @media screen and (min-width: $tablet) {
-    font-size: 1.2rem;
-    height: 300%;
+    font-size: 1.5rem;
+  }
+
+  @media screen and (min-width: $laptop) {
+    font-size: 2rem;
+  }
+}
+
+.detailsList {
+  display: flex;
+  font-family: Mate SC;
+  font-size: 0.75rem;
+  grid-gap: 0.25rem;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0;
+  margin: 0 4vw;
+  height: 70%;
+
+  @media screen and (min-width: $tablet) {
+    font-size: 1.5rem;
+    grid-gap: 1rem;
   }
 }

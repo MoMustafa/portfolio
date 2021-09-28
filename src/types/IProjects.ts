@@ -2,7 +2,7 @@ export interface IProjectInfo {
   pictureSrc: StaticImageData
   pictureAlt: string
   description: string
-  details: string
+  details: string[]
 }
 
 export interface IProjects {
